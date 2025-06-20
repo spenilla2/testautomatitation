@@ -1,0 +1,21 @@
+<configuration>
+    <!-- Appender para mostrar logs en consola -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- Formato: fecha, nivel, thread, logger y mensaje -->
+            <pattern>%date %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Nivel DEBUG para Karate (si usas Karate) -->
+    <logger name="com.intuit.karate" level="DEBUG"/>
+
+    <!-- Nivel DEBUG para toda la app Spring Boot durante los tests -->
+    <logger name="org.springframework" level="DEBUG"/>
+    <logger name="com.pichincha" level="DEBUG"/>
+
+    <!-- Nivel WARN para el resto -->
+    <root level="WARN">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
